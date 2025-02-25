@@ -245,12 +245,14 @@
 	.site-header {
 		padding-block: 1rem;
 	}
+
 	.site-header__inner {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem 1rem;
 		justify-content: space-between;
 	}
+
 	.primary-navigation {
 		ul {
 			display: flex;
@@ -258,10 +260,35 @@
 			gap: 0.5rem 1rem;
 		}
 	}
+
+	.site-footer {
+		text-align: center;
+		padding-block: 2rem;
+		background-color: var(--background-dark);
+		display: grid;
+		gap: 2rem;
+
+		a {
+			color: var(--text-high-contrast);
+		}
+
+		a:hover,
+		a:focus-visible {
+			color: var(--text-brand-light);
+		}
+	}
+
+	.site-footer__title {
+		font-size: var(--font-size-lg);
+		font-family: var(--ff-heading);
+		font-weight: 700;
+		color: var(--text-high-contrast);
+	}
+
 	.hero {
 		text-align: center;
 		font-size: var(--font-size-heading-md);
-		color: var(--text-high-contrast);
+		color: var(--text-main);
 		background-image: url('/assets/hero.webp');
 		background-size: cover;
 		background-position: center;
@@ -290,7 +317,7 @@
 	}
 
 	.card__title {
-		font-size: var(--card-title-font-size, var(--heading-regular));
+		font-size: var(--card-title-font-size, var(--font-size-heading-sm));
 		color: var(--card-title-color, var(--text-brand));
 	}
 
