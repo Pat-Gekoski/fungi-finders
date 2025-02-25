@@ -293,6 +293,25 @@
 		font-size: var(--card-title-font-size, var(--heading-regular));
 		color: var(--card-title-color, var(--text-brand));
 	}
+
+	.button {
+		display: inline-flex;
+		padding: 0.5rem 1rem;
+		background-color: var(--background-accent-main);
+		font-family: var(--ff-heading);
+		font-weight: 700;
+		color: var(--text-high-contrast);
+		text-decoration: none;
+		cursor: pointer;
+		border-radius: var(--border-radius-2);
+		font-size: var(--font-size-md);
+	}
+
+	.button:hover,
+	.button:focus-visible {
+		color: var(--text-high-contrast);
+		background-color: var(--background-accent-light);
+	}
 }
 
 @layer utilities {
