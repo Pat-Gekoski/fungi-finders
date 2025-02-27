@@ -1,3 +1,7 @@
+@view-transition {
+	navigation: auto;
+}
+
 @layer reset {
 	*,
 	*::before,
@@ -287,6 +291,8 @@
 
 	.site-header {
 		padding-block: 1rem;
+		overflow-x: clip;
+		position: relative;
 	}
 
 	.site-header__inner {
@@ -324,6 +330,10 @@
 
 		@media (width < 760px) {
 			display: none;
+			opacity: 0;
+			transition: opacity 0.5s, display 0.5s, translate 0.5s;
+			transition-behavior: allow-discrete;
+			translate: 100% 0;
 
 			position: absolute;
 			z-index: 10;
@@ -341,6 +351,20 @@
 				flex-direction: column;
 			}
 
+			li {
+				--delay: 0.5s;
+				translate: 50%;
+				transition: translate 0.5s var(--delay), opacity 0.5s var(--delay);
+			}
+
+			li:nth-child(2) {
+				--delay: 0.7s;
+			}
+
+			li:nth-child(3) {
+				--delay: 0.9s;
+			}
+
 			li + li {
 				border-top: 2px solid var(--background-accent-light);
 				margin-block-start: 1.5rem;
@@ -356,6 +380,23 @@
 	@media (width < 760px) {
 		[aria-expanded='true'] + .primary-navigation {
 			display: block;
+			opacity: 1;
+			translate: 0 0;
+
+			@starting-style {
+				opacity: 0;
+				translate: 0 -100%;
+			}
+
+			li {
+				translate: 0 0;
+				opacity: 1;
+
+				@starting-style {
+					opacity: 0;
+					translate: 50% 0;
+				}
+			}
 		}
 		[aria-controls='primary-navigation'] {
 			display: block;
@@ -393,6 +434,10 @@
 		background-image: url('/assets/hero.webp');
 		background-size: cover;
 		background-position: center;
+
+		animation: fade-out both;
+		animation-timeline: view();
+		animation-range-start: exit;
 	}
 
 	.hero__title {
@@ -563,6 +608,11 @@
 		display: none;
 	}
 
+	.resizing * {
+		transition: none;
+		animation: none;
+	}
+
 	.text-center {
 		text-align: center;
 	}
@@ -618,5 +668,14 @@
 		position: absolute;
 		white-space: nowrap;
 		width: 1px;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
 	}
 }
