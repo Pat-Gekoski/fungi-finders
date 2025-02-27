@@ -12,6 +12,7 @@
 		/>
 		<link rel="stylesheet" href="./styles.css" />
 		<script src="/main.js" defer></script>
+		<script src="/mushroom-filter.js" defer></script>
 	</head>
 	<body>
 		<a class="skip-to-main" href="#main">Skip to main content</a>
@@ -76,20 +77,20 @@
 					<div class="flow">
 						<h2 class="section-title">Get to know your mushrooms</h2>
 						<div class="flex-group">
-							<select name="" id="">
+							<select name="season" id="season" hidden>
 								<option value="all" selected>Season: All</option>
 								<option value="spring">Season: Spring</option>
 								<option value="summer">Season: Summer</option>
 								<option value="Fall">Season: Fall</option>
 							</select>
-							<select name="" id="">
+							<select name="edible" id="edible" hidden>
 								<option value="all">Type: all</option>
 								<option value="edible">Edible</option>
 								<option value="toxic">Toxic</option>
 							</select>
 						</div>
 						<!-- grid of mushrooms -->
-						<div class="grid-auto-fit">
+						<div class="grid-auto-fill">
 							<div class="card">
 								<h3 class="card__title">Chanterelle</h3>
 								<ul class="tag-list" role="list" aria-label="Mushroom characteristics">
@@ -243,6 +244,7 @@
 									<strong>Important notes: </strong>Verify identification - has toxic look-alikes
 								</div>
 							</div>
+							<div class="no-matches" hidden>No matches for these filters</div>
 						</div>
 					</div>
 				</div>
